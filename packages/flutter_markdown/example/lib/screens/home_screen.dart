@@ -21,13 +21,13 @@ class HomeScreen extends StatelessWidget {
   static const String routeName = '/homeScreen';
 
   final List<MarkdownDemoWidget> _demos = <MarkdownDemoWidget>[
-    const MinimalMarkdownDemo(),
-    const BasicMarkdownDemo(),
-    const WrapAlignmentDemo(),
-    const SubscriptSyntaxDemo(),
-    const ExtendedEmojiDemo(),
+    // const MinimalMarkdownDemo(),
+    // const BasicMarkdownDemo(),
+    // const WrapAlignmentDemo(),
+    // const SubscriptSyntaxDemo(),
+    // const ExtendedEmojiDemo(),
     OriginalMarkdownDemo(),
-    const CenteredHeaderDemo(),
+    // const CenteredHeaderDemo(),
   ];
 
   @override

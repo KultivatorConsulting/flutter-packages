@@ -27,7 +27,8 @@ const List<String> _kBlockTags = <String>[
   'table',
   'thead',
   'tbody',
-  'tr'
+  'tr',
+  'jira_img'
 ];
 
 const List<String> _kListTags = <String>['ul', 'ol'];
@@ -207,6 +208,7 @@ class MarkdownBuilder implements md.NodeVisitor {
     int? start;
     if (_isBlockTag(tag)) {
       _addAnonymousBlockIfNeeded();
+
       if (_isListTag(tag)) {
         _listIndents.add(tag);
         if (element.attributes['start'] != null)
@@ -432,6 +434,20 @@ class MarkdownBuilder implements md.NodeVisitor {
         );
       } else if (tag == 'hr') {
         child = Container(decoration: styleSheet.horizontalRuleDecoration);
+      } else if (tag == 'jira_img') {
+        EdgeInsets padding = EdgeInsets.zero;
+
+        if (paddingBuilders.containsKey(tag)) {
+          padding = paddingBuilders[tag]!.getPadding();
+        }
+        child = Row(
+          children: [
+            _buildPadding(
+              padding,
+              _buildImage(element.attributes['src']!, '', ''),
+            )
+          ],
+        );
       }
 
       _addBlockChild(child);

@@ -8,8 +8,50 @@ import '../shared/markdown_demo_widget.dart';
 
 // ignore_for_file: public_member_api_docs
 
+const String _markdownData1 = '''
+
+!image-20220503-014043.png|width=161,height=326!
+
+![Flutter logo](/dart-lang/site-shared/master/src/_assets/image/flutter/icon/64.png)
+
+''';
+
 const String _markdownData = """
+
+!image-20220503-014043.png|width=161,height=326!
+
+h1. Jira markdown start
+
+# list number 1
+# list number 2
+# list number 3
+
+
+# another list 1
+# another list 2
+
+* bullet 1
+* bullet 2
+
+_Italic_
+
+*bold*
+
+-*strike line bold*-
+
+-strike line-
+
+h1. H1 header
+h2. H2 header
+h3. H3 header
+h4. H4 header
+h5. H5 header
+h6. H6 header
+
+h1. Jira markdown end
+
 # Markdown Example
+
 Markdown allows you to easily include formatted text, images, and even formatted
 Dart code in your app.
 
@@ -145,14 +187,13 @@ class OriginalMarkdownDemo extends StatelessWidget
     implements MarkdownDemoWidget {
   OriginalMarkdownDemo({Key? key}) : super(key: key);
 
-  static const String _title = 'Original Markdown Demo';
+  static const String _title = 'Jira Markdown Demo';
 
   @override
   String get title => OriginalMarkdownDemo._title;
 
   @override
-  String get description => 'The original demo example. This demo was '
-      'include with versions of the package prior to version 0.4.4.';
+  String get description => 'Make it work for Jira markdown';
 
   @override
   Future<String> get data => Future<String>.value(_markdownData);
@@ -170,7 +211,7 @@ class OriginalMarkdownDemo extends StatelessWidget
           controller: controller,
           selectable: true,
           data: _markdownData,
-          imageDirectory: 'https://raw.githubusercontent.com',
+          imageDirectory: 'https://presenter.rallee.me',
         ),
       ),
       floatingActionButton: FloatingActionButton(
