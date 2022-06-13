@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:ui';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:markdown/markdown.dart' as md;
@@ -336,16 +338,34 @@ class MarkdownBuilder implements md.NodeVisitor {
         ),
       );
     } else {
-      child = _buildRichText(
-        TextSpan(
-          style: _isInBlockquote
-              ? styleSheet.blockquote!.merge(_inlines.last.style)
-              : _inlines.last.style,
-          text: _isInBlockquote ? text.text : trimText(text.text),
-          recognizer: _linkHandlers.isNotEmpty ? _linkHandlers.last : null,
-        ),
-        textAlign: _textAlignForBlockTag(_currentBlockTag),
-      );
+      if (_inlines.last.tag == 'superscript') {
+        child = Transform.translate(
+          offset: const Offset(0.0, -4.0),
+          child: Text(
+            text.text,
+            style: _inlines.last.style,
+          ),
+        );
+      } else if (_inlines.last.tag == 'subscript') {
+        child = Transform.translate(
+          offset: const Offset(0.0, 4.0),
+          child: Text(
+            text.text,
+            style: _inlines.last.style,
+          ),
+        );
+      } else {
+        child = _buildRichText(
+          TextSpan(
+            style: _isInBlockquote
+                ? styleSheet.blockquote!.merge(_inlines.last.style)
+                : _inlines.last.style,
+            text: _isInBlockquote ? text.text : trimText(text.text),
+            recognizer: _linkHandlers.isNotEmpty ? _linkHandlers.last : null,
+          ),
+          textAlign: _textAlignForBlockTag(_currentBlockTag),
+        );
+      }
     }
     if (child != null) {
       _inlines.last.children.add(child);

@@ -10,14 +10,17 @@ import '../shared/markdown_demo_widget.dart';
 
 const String _markdownData1 = '''
 
-!image-20220503-014043.png|width=161,height=326!
+before sub ~sub info~ after sub
 
-![Flutter logo](/dart-lang/site-shared/master/src/_assets/image/flutter/icon/64.png)
+before super ^super info^ after super
+
++underline+ inline
 
 ''';
 
 const String _markdownData = """
 
+{{code}}  inline after code
 !image-20220503-014043.png|width=161,height=326!
 
 h1. Jira markdown start
@@ -210,7 +213,7 @@ class OriginalMarkdownDemo extends StatelessWidget
         child: Markdown(
           controller: controller,
           selectable: true,
-          data: _markdownData,
+          data: _markdownData1,
           imageDirectory: 'https://presenter.rallee.me',
         ),
       ),

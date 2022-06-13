@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +31,8 @@ class MarkdownStyleSheet {
     this.strong,
     this.del,
     this.underline,
+    this.subscript,
+    this.superscript,
     this.blockquote,
     this.img,
     this.checkbox,
@@ -76,6 +80,8 @@ class MarkdownStyleSheet {
           'strong': strong,
           'del': del,
           'underline': underline,
+          'subscript': subscript,
+          'superscript': superscript,
           'blockquote': blockquote,
           'img': img,
           'table': p,
@@ -113,6 +119,8 @@ class MarkdownStyleSheet {
       strong: const TextStyle(fontWeight: FontWeight.bold),
       del: const TextStyle(decoration: TextDecoration.lineThrough),
       underline: const TextStyle(decoration: TextDecoration.underline),
+      subscript: const TextStyle(fontSize: 11),
+      superscript: const TextStyle(fontSize: 11),
       blockquote: theme.textTheme.bodyText2,
       img: theme.textTheme.bodyText2,
       checkbox: theme.textTheme.bodyText2!.copyWith(
@@ -210,7 +218,13 @@ class MarkdownStyleSheet {
         decoration: TextDecoration.lineThrough,
       ),
       underline: theme.textTheme.textStyle.copyWith(
-        decoration: TextDecoration.underline
+        decoration: TextDecoration.underline,
+      ),
+      subscript: theme.textTheme.textStyle.copyWith(
+        fontSize: 11,
+      ),
+      superscript: theme.textTheme.textStyle.copyWith(
+        fontSize: 11,
       ),
       blockquote: theme.textTheme.textStyle,
       img: theme.textTheme.textStyle,
@@ -297,6 +311,8 @@ class MarkdownStyleSheet {
       strong: const TextStyle(fontWeight: FontWeight.bold),
       del: const TextStyle(decoration: TextDecoration.lineThrough),
       underline: const TextStyle(decoration: TextDecoration.underline),
+      subscript: const TextStyle(fontSize: 11),
+      superscript: const TextStyle(fontSize: 11),
       blockquote: theme.textTheme.bodyText2,
       img: theme.textTheme.bodyText2,
       checkbox: theme.textTheme.bodyText2!.copyWith(
@@ -359,6 +375,8 @@ class MarkdownStyleSheet {
     TextStyle? strong,
     TextStyle? del,
     TextStyle? underline,
+    TextStyle? subscript,
+    TextStyle? superscript,
     TextStyle? blockquote,
     TextStyle? img,
     TextStyle? checkbox,
@@ -412,6 +430,8 @@ class MarkdownStyleSheet {
       strong: strong ?? this.strong,
       del: del ?? this.del,
       underline: underline ?? this.underline,
+      subscript: subscript ?? this.subscript,
+      superscript: superscript ?? this.superscript,
       blockquote: blockquote ?? this.blockquote,
       img: img ?? this.img,
       checkbox: checkbox ?? this.checkbox,
@@ -474,6 +494,8 @@ class MarkdownStyleSheet {
       strong: strong!.merge(other.strong),
       del: del!.merge(other.del),
       underline: underline!.merge(other.underline),
+      subscript: subscript!.merge(other.subscript),
+      superscript: superscript!.merge(other.superscript),
       blockquote: blockquote!.merge(other.blockquote),
       img: img!.merge(other.img),
       checkbox: checkbox!.merge(other.checkbox),
@@ -567,6 +589,12 @@ class MarkdownStyleSheet {
 
   /// The [TextStyle] to use for `underline` elements.
   final TextStyle? underline;
+  
+  /// The [TextStyle] to use for `subscript` elements.
+  final TextStyle? subscript;
+
+  /// The [TextStyle] to use for `superscript` elements.
+  final TextStyle? superscript;
 
   /// The [TextStyle] to use for `blockquote` elements.
   final TextStyle? blockquote;
@@ -695,6 +723,8 @@ class MarkdownStyleSheet {
         typedOther.strong == strong &&
         typedOther.del == del &&
         typedOther.underline == underline &&
+        typedOther.subscript == subscript &&
+        typedOther.superscript == superscript &&
         typedOther.blockquote == blockquote &&
         typedOther.img == img &&
         typedOther.checkbox == checkbox &&
@@ -752,6 +782,8 @@ class MarkdownStyleSheet {
       strong,
       del,
       underline,
+      subscript,
+      superscript,
       blockquote,
       img,
       checkbox,
