@@ -354,6 +354,14 @@ class MarkdownBuilder implements md.NodeVisitor {
             style: _inlines.last.style,
           ),
         );
+      } else if (_inlines.last.tag != null &&
+          _inlines.last.tag!.contains('color-')) {
+        String colorHex = _inlines.last.tag!.substring(6);
+        final Color color = Color(int.parse('ff$colorHex', radix: 16));
+        child = Text(
+          text.text,
+          style: _inlines.last.style!.copyWith(color: color),
+        );
       } else {
         child = _buildRichText(
           TextSpan(

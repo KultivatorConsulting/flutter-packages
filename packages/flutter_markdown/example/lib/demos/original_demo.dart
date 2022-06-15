@@ -10,18 +10,27 @@ import '../shared/markdown_demo_widget.dart';
 
 const String _markdownData1 = '''
 
-before sub ~sub info~ after sub
+This is a [test link|https://ralleeme.atlassian.net/browse/RUI-65]
 
-before super ^super info^ after super
+[*title*](https://www.example.com)
 
-+underline+ inline
+ *+underline+*
+
+ before color {color:#00b8d9}color{color} after color
+
+😀
 
 ''';
 
 const String _markdownData = """
 
-{{code}}  inline after code
++underline+ inline
+ggg {{code}}  inline after code
 !image-20220503-014043.png|width=161,height=326!
+
+before sub ~sub info~ after sub
+
+before super ^super info^ after super
 
 h1. Jira markdown start
 
