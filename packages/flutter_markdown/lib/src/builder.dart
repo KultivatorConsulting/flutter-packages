@@ -6,6 +6,7 @@ import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:markdown/markdown.dart' as md;
 
 import '_functions_io.dart' if (dart.library.html) '_functions_web.dart';
@@ -361,6 +362,16 @@ class MarkdownBuilder implements md.NodeVisitor {
         child = Text(
           text.text,
           style: _inlines.last.style!.copyWith(color: color),
+        );
+      } else if (_inlines.last.tag == 'jira_link') {
+        final String textWithLinkUrl = text.text;
+        final List<String> splitted = textWithLinkUrl.split('|');
+        child = GestureDetector(
+          child: Text(splitted[0], style: styleSheet.a),
+          onTap: () async {
+            if (splitted[1] != null && !await launchUrl(Uri.parse(splitted[1])))
+              throw 'Could not launch $splitted[1]';
+          },
         );
       } else {
         child = _buildRichText(
