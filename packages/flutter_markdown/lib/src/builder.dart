@@ -540,6 +540,7 @@ class MarkdownBuilder implements md.NodeVisitor {
         final Widget child = _buildTableCell(
           _mergeInlineChildren(current.children, align),
           textAlign: align,
+          tag: tag,
         );
         _tables.single.rows.last.children!.add(child);
       } else if (tag == 'a') {
@@ -637,14 +638,17 @@ class MarkdownBuilder implements md.NodeVisitor {
     );
   }
 
-  Widget _buildTableCell(List<Widget?> children, {TextAlign? textAlign}) {
+  Widget _buildTableCell(List<Widget?> children, {TextAlign? textAlign, required String tag}) {
     return TableCell(
-      child: Padding(
-        padding: styleSheet.tableCellsPadding!,
-        child: DefaultTextStyle(
-          style: styleSheet.tableBody!,
-          textAlign: textAlign,
-          child: Wrap(children: children as List<Widget>),
+      child: Container(
+        color: tag == 'th' ? Colors.grey.shade400 : Colors.transparent,
+        child: Padding(
+          padding: styleSheet.tableCellsPadding!,
+          child: DefaultTextStyle(
+            style: styleSheet.tableBody!,
+            textAlign: textAlign,
+            child: Wrap(children: children as List<Widget>),
+          ),
         ),
       ),
     );

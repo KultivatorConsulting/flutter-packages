@@ -130,7 +130,7 @@ class MarkdownStyleSheet {
       listIndent: 24.0,
       listBullet: theme.textTheme.bodyText2,
       listBulletPadding: const EdgeInsets.only(right: 4),
-      tableHead: const TextStyle(fontWeight: FontWeight.w600),
+      tableHead: const TextStyle(fontWeight: FontWeight.w400),
       tableBody: theme.textTheme.bodyText2,
       tableHeadAlign: TextAlign.center,
       tableBorder: TableBorder.all(
@@ -236,7 +236,7 @@ class MarkdownStyleSheet {
       listBullet: theme.textTheme.textStyle,
       listBulletPadding: const EdgeInsets.only(right: 4),
       tableHead: theme.textTheme.textStyle.copyWith(
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w400,
       ),
       tableBody: theme.textTheme.textStyle,
       tableHeadAlign: TextAlign.center,
@@ -322,7 +322,7 @@ class MarkdownStyleSheet {
       listIndent: 24.0,
       listBullet: theme.textTheme.bodyText2,
       listBulletPadding: const EdgeInsets.only(right: 4),
-      tableHead: const TextStyle(fontWeight: FontWeight.w600),
+      tableHead: const TextStyle(fontWeight: FontWeight.w400),
       tableBody: theme.textTheme.bodyText2,
       tableHeadAlign: TextAlign.center,
       tableBorder: TableBorder.all(

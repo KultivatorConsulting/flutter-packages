@@ -10,22 +10,34 @@ import '../shared/markdown_demo_widget.dart';
 
 const String _markdownData1 = '''
 
-This is a [test link|https://ralleeme.atlassian.net/browse/RUI-65]
+||*thead 1*||*thead2*||
+|td1|td2|
+|td3|td4|
+|td5|td6|
 
-[*title*](https://www.example.com)
-
- *+underline+*
-
- before color {color:#00b8d9}color{color} after color
-
-😀
+|1|
+|2|
 
 ''';
 
 const String _markdownData = """
 
+| Syntax | Description |
+| ----------- | ----------- |
+| Header | Title | 
+
+|1|
+|2|
+
+
+This is a [test link|https://ralleeme.atlassian.net/browse/RUI-65] after link
+
 +underline+ inline
+
 ggg {{code}}  inline after code
+
+ before color {color:#00b8d9}color{color} after color
+
 !image-20220503-014043.png|width=161,height=326!
 
 before sub ~sub info~ after sub
