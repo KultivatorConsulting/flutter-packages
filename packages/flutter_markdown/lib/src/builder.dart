@@ -641,7 +641,7 @@ class MarkdownBuilder implements md.NodeVisitor {
   Widget _buildTableCell(List<Widget?> children, {TextAlign? textAlign, required String tag}) {
     return TableCell(
       child: Container(
-        color: tag == 'th' ? Colors.grey.shade400 : Colors.transparent,
+        color: tag == 'th' ? const Color(0xffF4F5F7) : Colors.transparent,
         child: Padding(
           padding: styleSheet.tableCellsPadding!,
           child: DefaultTextStyle(

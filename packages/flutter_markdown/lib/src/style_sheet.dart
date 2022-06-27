@@ -98,8 +98,6 @@ class MarkdownStyleSheet {
       p: theme.textTheme.bodyText2,
       pPadding: EdgeInsets.zero,
       code: theme.textTheme.bodyText2!.copyWith(
-        // backgroundColor: theme.cardTheme.color ?? theme.cardColor,
-        backgroundColor: Colors.grey.shade400,
         fontFamily: 'monospace',
         fontSize: theme.textTheme.bodyText2!.fontSize! * 0.85,
       ),
@@ -147,7 +145,7 @@ class MarkdownStyleSheet {
       ),
       codeblockPadding: const EdgeInsets.all(8.0),
       codeblockDecoration: BoxDecoration(
-        color: theme.cardTheme.color ?? theme.cardColor,
+        color: const Color(0xffF4F5F7),
         borderRadius: BorderRadius.circular(2.0),
       ),
       horizontalRuleDecoration: BoxDecoration(
@@ -291,7 +289,7 @@ class MarkdownStyleSheet {
       p: theme.textTheme.bodyText2,
       pPadding: EdgeInsets.zero,
       code: theme.textTheme.bodyText2!.copyWith(
-        backgroundColor: theme.cardTheme.color ?? theme.cardColor,
+
         fontFamily: 'monospace',
         fontSize: theme.textTheme.bodyText2!.fontSize! * 0.85,
       ),
