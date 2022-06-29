@@ -138,10 +138,11 @@ class MarkdownStyleSheet {
       tableColumnWidth: const FlexColumnWidth(),
       tableCellsPadding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       tableCellsDecoration: const BoxDecoration(),
-      blockquotePadding: const EdgeInsets.all(8.0),
-      blockquoteDecoration: BoxDecoration(
-        color: Colors.blue.shade100,
-        borderRadius: BorderRadius.circular(2.0),
+      blockquotePadding: const EdgeInsets.only(left: 16, right: 8, top: 8, bottom: 8),
+      blockquoteDecoration: const BoxDecoration(
+        border: Border(
+          left: BorderSide(color: Color(0xFFDFE1E5), width: 2),
+        ),
       ),
       codeblockPadding: const EdgeInsets.all(8.0),
       codeblockDecoration: BoxDecoration(
@@ -246,7 +247,7 @@ class MarkdownStyleSheet {
             ? CupertinoColors.systemGrey6.darkColor
             : CupertinoColors.systemGrey6.color,
       ),
-      blockquotePadding: const EdgeInsets.all(16),
+      blockquotePadding: const EdgeInsets.only(left: 16, right: 8, top: 8, bottom: 8),
       blockquoteDecoration: BoxDecoration(
         color: theme.brightness == Brightness.dark
             ? CupertinoColors.systemGrey6.darkColor
@@ -289,7 +290,6 @@ class MarkdownStyleSheet {
       p: theme.textTheme.bodyText2,
       pPadding: EdgeInsets.zero,
       code: theme.textTheme.bodyText2!.copyWith(
-
         fontFamily: 'monospace',
         fontSize: theme.textTheme.bodyText2!.fontSize! * 0.85,
       ),
@@ -329,10 +329,11 @@ class MarkdownStyleSheet {
       tableColumnWidth: const FlexColumnWidth(),
       tableCellsPadding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       tableCellsDecoration: const BoxDecoration(),
-      blockquotePadding: const EdgeInsets.all(8.0),
-      blockquoteDecoration: BoxDecoration(
-        color: Colors.blue.shade100,
-        borderRadius: BorderRadius.circular(2.0),
+      blockquotePadding: const EdgeInsets.only(left: 16, right: 8, top: 8, bottom: 8),
+      blockquoteDecoration: const BoxDecoration(
+        border: Border(
+          left: BorderSide(color: Color(0xFFDFE1E5), width: 2),
+        ),
       ),
       codeblockPadding: const EdgeInsets.all(8.0),
       codeblockDecoration: BoxDecoration(
@@ -587,7 +588,7 @@ class MarkdownStyleSheet {
 
   /// The [TextStyle] to use for `underline` elements.
   final TextStyle? underline;
-  
+
   /// The [TextStyle] to use for `subscript` elements.
   final TextStyle? subscript;
 
