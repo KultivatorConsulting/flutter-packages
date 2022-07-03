@@ -152,7 +152,7 @@ class MarkdownStyleSheet {
       horizontalRuleDecoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            width: 5.0,
+            width: 2.0,
             color: theme.dividerColor,
           ),
         ),
@@ -343,7 +343,7 @@ class MarkdownStyleSheet {
       horizontalRuleDecoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            width: 5.0,
+            width: 2.0,
             color: theme.dividerColor,
           ),
         ),

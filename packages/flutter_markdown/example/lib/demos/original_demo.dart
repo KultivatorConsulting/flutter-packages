@@ -10,17 +10,26 @@ import '../shared/markdown_demo_widget.dart';
 
 const String _markdownData1 = '''
 
-||*thead 1*||*thead2*||
-|td1|td2|
-|td3|td4|
-|td5|td6|
+----
+----
 
-|1|
-|2|
+dfdfds
+
+----
 
 ''';
 
 const String _markdownData = """
+
+
+{quote}quote text
+
+quote text line 2{quote}
+
+{noformat}'ContextHint', {
+    key: key,
+    data: data
+}{noformat}
 
 | Syntax | Description |
 | ----------- | ----------- |
