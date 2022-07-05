@@ -305,11 +305,6 @@ class MarkdownBuilder implements md.NodeVisitor {
       // at the beginning of a line of text.
       final RegExp _leadingSpacesPattern = RegExp(r'^ *');
 
-      // The soft line break is used to identify the spaces at the end of a line
-      // of text and the leading spaces in the immediately following the line
-      // of text. These spaces are removed in accordance with the Markdown
-      // specification on soft line breaks when lines of text are joined.
-      final RegExp _softLineBreak = RegExp(r' ?\n *');
 
       // Leading spaces following a hard line break are ignored.
       // https://github.github.com/gfm/#example-657
@@ -319,11 +314,7 @@ class MarkdownBuilder implements md.NodeVisitor {
       if (const <String>['ul', 'ol', 'p', 'br'].contains(_lastVisitedTag)) {
         text = text.replaceAll(_leadingSpacesPattern, '');
       }
-
-      if (softLineBreak) {
-        return text;
-      }
-      return text.replaceAll(_softLineBreak, ' ');
+      return text;
     }
 
     Widget? child;
@@ -638,7 +629,8 @@ class MarkdownBuilder implements md.NodeVisitor {
     );
   }
 
-  Widget _buildTableCell(List<Widget?> children, {TextAlign? textAlign, required String tag}) {
+  Widget _buildTableCell(List<Widget?> children,
+      {TextAlign? textAlign, required String tag}) {
     return TableCell(
       child: Container(
         color: tag == 'th' ? const Color(0xffF4F5F7) : Colors.transparent,
