@@ -98,6 +98,7 @@ class MarkdownStyleSheet {
       p: theme.textTheme.bodyText2,
       pPadding: EdgeInsets.zero,
       code: theme.textTheme.bodyText2!.copyWith(
+        backgroundColor: const Color(0xffDCDCDC),
         fontFamily: 'monospace',
         fontSize: theme.textTheme.bodyText2!.fontSize! * 0.85,
       ),
@@ -138,7 +139,8 @@ class MarkdownStyleSheet {
       tableColumnWidth: const FlexColumnWidth(),
       tableCellsPadding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       tableCellsDecoration: const BoxDecoration(),
-      blockquotePadding: const EdgeInsets.only(left: 16, right: 8, top: 8, bottom: 8),
+      blockquotePadding:
+          const EdgeInsets.only(left: 16, right: 8, top: 8, bottom: 8),
       blockquoteDecoration: const BoxDecoration(
         border: Border(
           left: BorderSide(color: Color(0xFFDFE1E5), width: 2),
@@ -247,7 +249,8 @@ class MarkdownStyleSheet {
             ? CupertinoColors.systemGrey6.darkColor
             : CupertinoColors.systemGrey6.color,
       ),
-      blockquotePadding: const EdgeInsets.only(left: 16, right: 8, top: 8, bottom: 8),
+      blockquotePadding:
+          const EdgeInsets.only(left: 16, right: 8, top: 8, bottom: 8),
       blockquoteDecoration: BoxDecoration(
         color: theme.brightness == Brightness.dark
             ? CupertinoColors.systemGrey6.darkColor
@@ -329,7 +332,8 @@ class MarkdownStyleSheet {
       tableColumnWidth: const FlexColumnWidth(),
       tableCellsPadding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       tableCellsDecoration: const BoxDecoration(),
-      blockquotePadding: const EdgeInsets.only(left: 16, right: 8, top: 8, bottom: 8),
+      blockquotePadding:
+          const EdgeInsets.only(left: 16, right: 8, top: 8, bottom: 8),
       blockquoteDecoration: const BoxDecoration(
         border: Border(
           left: BorderSide(color: Color(0xFFDFE1E5), width: 2),
