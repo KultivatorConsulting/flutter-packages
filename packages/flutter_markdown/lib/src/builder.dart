@@ -31,7 +31,8 @@ const List<String> _kBlockTags = <String>[
   'thead',
   'tbody',
   'tr',
-  'jira_img'
+  'jira_img',
+  'panel'
 ];
 
 const List<String> _kListTags = <String>['ul', 'ol'];
@@ -305,7 +306,6 @@ class MarkdownBuilder implements md.NodeVisitor {
       // at the beginning of a line of text.
       final RegExp _leadingSpacesPattern = RegExp(r'^ *');
 
-
       // Leading spaces following a hard line break are ignored.
       // https://github.github.com/gfm/#example-657
       // Leading spaces in paragraph or list item are ignored
@@ -478,6 +478,52 @@ class MarkdownBuilder implements md.NodeVisitor {
             )
           ],
         );
+      } else if (tag == 'panel') {
+        final String colorHex = element.attributes['color']!;
+        final Color bgColor = Color(int.parse('ff$colorHex', radix: 16));
+        Icon icon = const Icon(
+          Icons.info,
+          color: Color(0xff0052CC),
+        ); //default info icon
+        if (colorHex.toLowerCase() == 'eae6ff') {
+          icon = const Icon(
+            Icons.note_add_rounded,
+            color: Color(0xff5243AA),
+          );
+        }
+        else if (colorHex.toLowerCase() == 'e3fcef') {
+          icon = const Icon(
+            Icons.check_circle,
+            color: Color(0xff00875A),
+          );
+        }
+        else if (colorHex.toLowerCase() == 'fffae6') {
+          icon = const Icon(
+            Icons.warning,
+            color: Color(0xffFF991F),
+          );
+        }
+        else if (colorHex.toLowerCase() == 'ffebe6') {
+          icon = const Icon(
+            Icons.error_outlined,
+            color: Color(0xffDE350B),
+          );
+        }
+        child = Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+            width: double.infinity,
+            color: bgColor,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                icon,
+                const SizedBox(
+                  width: 10,
+                ),
+                Flexible(child: child)
+              ],
+            ));
       }
 
       _addBlockChild(child);
